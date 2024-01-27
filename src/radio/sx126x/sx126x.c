@@ -471,10 +471,10 @@ void SX126xSetDioIrqParams( uint16_t irqMask, uint16_t dio1Mask, uint16_t dio2Ma
 
 uint16_t SX126xGetIrqStatus( void )
 {
-    uint8_t irqStatus[2];
+    uint8_t irqStatus[3];
 
-    SX126xReadCommand( RADIO_GET_IRQSTATUS, irqStatus, 2 );
-    return ( irqStatus[0] << 8 ) | irqStatus[1];
+    SX126xReadCommand( RADIO_GET_IRQSTATUS, irqStatus, 3 );
+    return ( irqStatus[1] << 8 ) | irqStatus[2];
 }
 
 void SX126xSetDio2AsRfSwitchCtrl( uint8_t enable )
